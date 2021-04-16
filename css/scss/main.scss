@@ -1,0 +1,271 @@
+    @use './partials/nav-bar' as *;
+    @use './partials/flex' as *;
+    @use './partials/fonts.scss' as *;
+    @use './partials/mixins' as *;
+    @use './partials/animations' as *;
+    /* To stop links from changing color when they are clicked */
+    
+    a,
+    a:visited,
+    a:hover,
+    a:active {
+        color: inherit;
+        text-decoration: none;
+    }
+    /* Root Element Styling */
+    
+    body {
+        margin: 0;
+        font-family: Open Sans;
+    }
+    /* Landing Page/Hero Image Section Styles */
+    
+    .landing-page {
+        background-color: #FFF0ED;
+        min-height: 72.5vh;
+        max-height: 80vh;
+        padding: 2.5vh 0 5vh;
+        &__title {
+            @include font-stack-heading;
+            color: #393939;
+            margin: 0 0 1.5vh;
+            width: 40vw;
+        }
+        &__text-container {
+            width: 40vw;
+            display: inline-block;
+            margin: 20vh 0 0 8vw;
+            vertical-align: top;
+        }
+        &__text {
+            @include font-stack-paragraph;
+            width: 25vw;
+            margin: 0 0 4vh 0;
+        }
+        &__button-container {
+            @include button-container-styles;
+        }
+        &__button {
+            @include button;
+            &:active {
+                @include active-button;
+            }
+        }
+        &__hero-image {
+            min-height: 70vh;
+            margin: 5vh 0 0 30vh;
+        }
+        &-head {
+            background-color: #fff0ed;
+        }
+    }
+    /* Products Section Styles */
+    
+    .cards-container {
+        @include flex(column, space-between, center);
+        background-color: #F7F7F7;
+        min-height: 60vh;
+        max-height: 90vh;
+        padding: 8vh 0;
+        &__section-container {
+            @include flex(row, space-around, center);
+            margin-bottom: 3vh;
+        }
+        &__header {
+            @include font-stack-heading;
+            text-align: center;
+            margin: 0;
+        }
+        &__card {
+            @include flex(column, space-between, center);
+            width: 22vw;
+            height: 56vh;
+            margin: 2.5vw;
+            border-radius: 10px;
+            box-shadow: 0 5px 9px -1px rgba(0, 0, 0, 0.25);
+            background-color: #fff;
+            border-color: #393939;
+        }
+        &__price-title-details-container {
+            @include flex (row, space-evenly, center);
+            border-radius: 0 0 10px 10px;
+            background-color: #FFF0ED;
+            padding: 0 0 4vh 1vh;
+            width: 100%;
+            height: 30%;
+            box-sizing: border-box;
+        }
+        &__details-price-container {
+            @include flex(column, "", "");
+            width: 75%;
+        }
+        &__title {
+            @include font-stack-cards-container-title;
+            color: #393939;
+            font-family: Open Sans;
+            margin: 5vh 0 0;
+        }
+        &__details {
+            @include font-stack-cards-container-detail;
+            margin: 0;
+            color: #393939;
+        }
+        &__image {
+            min-height: 33vh;
+            max-height: 37.5vh;
+            padding-bottom: 0%;
+            margin: 2vh 0 0 0;
+        }
+        &__price {
+            @include font-stack-cards-container-price;
+            color: #5bacc3;
+            padding-right: 1vw;
+            padding-top: 2vh;
+        }
+        &__button-container {
+            @include button-container-styles;
+        }
+        &__button {
+            @include button;
+            &:active {
+                @include active-button;
+            }
+        }
+    }
+    /* Discount Banner Styles */
+    
+    .discount-container {
+        @include flex(column, space-around, center);
+        box-sizing: border-box;
+        width: 100%;
+        height: 125vh;
+        position: relative;
+        &__top-section {
+            @include flex(row, space-between, "");
+            margin: 0 15vh;
+            height: 40%;
+        }
+        &__top-left {
+            @include flex(column, space-between, "");
+            width: 40%;
+            height: 50vh;
+        }
+        &__header {
+            @include font-stack-heading;
+            font-family: Open Sans;
+        }
+        &__text {
+            @include font-stack-paragraph;
+            font-family: Open Sans;
+        }
+        &__icons-container {
+            @include flex(row, space-between, "");
+            margin-bottom: 5vh;
+        }
+        &__icons {
+            width: 50px;
+            height: 50px;
+        }
+        &__button-container {
+            @include button-container-styles;
+        }
+        &__button {
+            @include button;
+            &:active {
+                @include active-button;
+            }
+        }
+        &__top-right {
+            @include flex(row, center, center);
+            background-image: url(../../assets/backgrounds/coldbrewbackground.png);
+            width: 30vw;
+            height: 50vh;
+            background-position: center;
+            background-size: cover;
+            margin-right: 5vh;
+            position: relative;
+            top: 100px;
+        }
+        &__image-container {
+            width: 30vw;
+            height: inherit;
+            border: 5px solid #5BACC3;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+        }
+        &__image {
+            height: 30.5vh;
+            padding: 11vh 12vw;
+            position: absolute;
+            top: -10px;
+            left: -20px;
+            &:hover {
+                animation: rotation 2s linear 0s infinite normal;
+            }
+        }
+        &__banner p {
+            @include font-stack-discount;
+            width: 90%;
+            background-color: #393939;
+            color: #fff;
+            text-align: center;
+            padding: 4vh 8vh;
+            animation: flashing 2.5s linear 0s infinite alternate;
+            position: relative;
+            top: 50px;
+        }
+        &__banner--emphasis {
+            font-weight: 700;
+        }
+    }
+    /* Footer Styles */
+    
+    .footer {
+        @include flex(row, center, center);
+        background-color: #fff0ed;
+        width: 100%;
+        height: 30vh;
+        position: relative;
+        &__section {
+            @include flex(column, space-between, "");
+            width: 20vw;
+            height: 10vh;
+            margin: 0 0px 0 150px;
+        }
+        &__header {
+            @include font-stack-h3;
+            margin: 0;
+        }
+        &__details {
+            @include font-stack-paragraph;
+            &--emphasis {
+                font-weight: 700;
+            }
+        }
+        &__social-icons-container {
+            @include flex(row, space-around, "");
+            width: 7.5vw;
+        }
+        &__social-icons {
+            min-width: 4.5vh;
+            max-width: 5vh;
+            padding: .5vh;
+        }
+        &__coffee-motif {
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            top: 10px;
+            left: -40px;
+            opacity: .3;
+            &--left {
+                top: 10px;
+                left: -40px;
+            }
+            &--right {
+                top: 100px;
+                left: 1450px;
+            }
+        }
+    }

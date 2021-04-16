@@ -1,0 +1,22 @@
+    @mixin active-button {
+        top: 0px;
+        left: 0px;
+    }
+    
+    @keyframes rotation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes flashing {
+        from {
+            background-color: #393939;
+        }
+        to {
+            background-color: #5BACC3;
+        }
+    }

@@ -1,0 +1,43 @@
+@use './flex' as *;
+@use './fonts' as *;
+.nav-bar {
+    @include flex(row, space-between, center);
+    height: 10vh;
+    background-color: #FFF0ED;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__left {
+        @include flex(row, right, '');
+        display: flex;
+        justify-content: right;
+        width: 15vw;
+        margin: 0;
+    }
+    &__logo {
+        height: 50px;
+        margin: 5.5vh 0 2.5vh 2.5vh;
+    }
+    &__header {
+        @include font-stack-h3;
+    }
+    &__right {
+        @include flex(row, space-between, left);
+    }
+    &__links {
+        text-decoration: none;
+        list-style-type: none;
+    }
+    &__link {
+        @include font-stack-nav-link-button;
+        box-sizing: border-box;
+        color: #393939;
+        display: inline;
+        margin: 10px;
+        padding: 0 3vh 0 0;
+        &--highlight {
+            color: #5bacc3;
+        }
+    }
+}
